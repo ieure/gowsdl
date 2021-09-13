@@ -22,6 +22,11 @@ type WSDL struct {
 	Service         []*WSDLService    `xml:"http://schemas.xmlsoap.org/wsdl/ service"`
 }
 
+type XSDAttributeNamespace struct {
+	Attribute       *XSDAttribute
+	TargetNamespace string
+}
+
 // UnmarshalXML implements interface xml.Unmarshaler for XSDSchema.
 func (w *WSDL) UnmarshalXML(d *xml.Decoder, start xml.StartElement) error {
 	w.Xmlns = make(map[string]string)
